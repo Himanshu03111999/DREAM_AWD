@@ -1,9 +1,9 @@
 streamlit>=1.39
 numpy
-pandas>=2.0
+pandas>=2.0,<3
 geopandas
+pyogrio
 shapely>=2.0
-fiona
 pyproj
 earthengine-api
 folium
