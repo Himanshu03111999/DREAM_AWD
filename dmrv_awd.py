@@ -410,8 +410,11 @@ def load_vector(name, raw, pasted=""):
     low = name.lower()
     if low.endswith((".csv", ".tsv", ".txt")): return _table_to_gdf(pd.read_csv(io.BytesIO(raw), sep=None, engine="python", dtype=str))
     if low.endswith((".xlsx", ".xls")): return _table_to_gdf(pd.read_excel(io.BytesIO(raw), dtype=str))
-    import fiona
-    fiona.drvsupport.supported_drivers["KML"] = "rw"; fiona.drvsupport.supported_drivers["LIBKML"] = "rw"
+    try:
+        import fiona
+        fiona.drvsupport.supported_drivers["KML"] = "rw"; fiona.drvsupport.supported_drivers["LIBKML"] = "rw"
+    except ImportError:
+        pass
     path = os.path.join(tempfile.mkdtemp(), name); open(path, "wb").write(raw)
     gdf = (gpd.read_file("zip://" + path) if low.endswith(".zip") else gpd.read_file(path)).to_crs(4326)
     gdf["geometry"] = gpd.GeoSeries(shapely.force_2d(np.asarray(gdf.geometry.values)), index=gdf.index, crs=4326)
