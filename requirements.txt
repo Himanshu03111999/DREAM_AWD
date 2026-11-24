@@ -2,10 +2,9 @@ streamlit>=1.39
 streamlit-folium
 folium
 earthengine-api
-geopandas
+geopandas>=1.0
 shapely>=2
 pyogrio
-fiona
 pyproj
 plotly
 pandas
@@ -14,5 +13,3 @@ huggingface_hub
 requests
 pillow
 openpyxl
-xlrd
-timezonefinder
