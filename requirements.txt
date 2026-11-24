@@ -1,0 +1,16 @@
+streamlit>=1.39
+numpy
+pandas>=2.0
+geopandas
+shapely>=2.0
+fiona
+pyproj
+earthengine-api
+folium
+streamlit-folium
+plotly
+huggingface_hub
+requests
+pillow
+openpyxl
+timezonefinder
