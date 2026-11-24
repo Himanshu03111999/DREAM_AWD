@@ -14,3 +14,5 @@ requests
 pillow
 openpyxl
 timezonefinder
+fiona
+pyogrio
